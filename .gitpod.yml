@@ -1,12 +1,13 @@
 tasks:
-  - init: yarn
-    command: yarn start
-    
   - init: yarn # && yarn build
     command: |
-      sudo apt install tmux -y 
+      sudo apt install mc tmux -y 
       sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"  
+
+  - init: yarn
+    command: yarn start
     openMode: split-right
+    
 ports:
   - port: 3000
   - port: 3333
