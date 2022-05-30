@@ -1,5 +1,6 @@
 interface IProps {
-    children?: React.ReactNode;
+    children?: | React.ReactNode
+               | React.ReactNode[];    
 }
 
 export type {IProps};

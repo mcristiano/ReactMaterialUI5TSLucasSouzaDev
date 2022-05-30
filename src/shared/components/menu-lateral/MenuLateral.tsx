@@ -1,10 +1,8 @@
+import { PropsWithChildren } from 'react';
 import { Avatar, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
-import { IProps } from '../../helpers';
 
-
-
-export const MenuLateral = ({children} : IProps ) => {
+export const MenuLateral = ({children} : PropsWithChildren<{}> ) => {
   const theme = useTheme();
   //export const MenuLateral : React.FC = ({children}) => {
   return (
