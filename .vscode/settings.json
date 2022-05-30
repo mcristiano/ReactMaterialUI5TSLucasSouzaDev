@@ -1,0 +1,5 @@
+{
+    "export-typescript.excludes":["*.{spec.ts,spec.tsx}"],
+    "export-typescript.includes":["*.{ts,tsx}", "*/index.{ts,tsx}"],
+    "export-typescript.exportStar": true
+}

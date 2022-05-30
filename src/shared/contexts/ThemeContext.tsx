@@ -1,9 +1,10 @@
-import { createContext, useCallback, useMemo, useState, useContext } from "react";
+import { createContext, useCallback, useMemo, useState, useContext } from 'react';
 
 import { LightTheme, DarkTheme } from './../themes';
 
-import { ThemeProvider } from "@emotion/react";
-import { Box } from "@mui/system";
+import { ThemeProvider } from '@emotion/react';
+import { Box } from '@mui/system';
+import { IProps } from '../helpers';
 
 interface IThemeContextData {
     themeName: 'light' | 'dark'
@@ -11,15 +12,11 @@ interface IThemeContextData {
     children?: React.ReactNode;
 }
 
-interface IProps {
-    children?: React.ReactNode;
-}
-
 const ThemeContext = createContext( {} as IThemeContextData );
 
 export const useAppThemeContext = () => {
   return useContext(ThemeContext);
-}
+};
 
 
 //export const AppThemePrvoider: React.FC = ( { children } ) => {
