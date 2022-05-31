@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Avatar, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
-import { useAppDrawerContext } from '../../contexts';
+import { useAppDrawerContext, useAppThemeContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 
 interface IListItemLinkProps {
@@ -39,13 +39,17 @@ export const MenuLateral = ({children} : PropsWithChildren<{}> ) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useAppDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
   
 
   return (
     <>
-      <Drawer open={ isDrawerOpen } variant={ smDown ? 'temporary' : 'permanent' } onClose={toggleDrawerOpen}>
-        <Box width={theme.spacing(28)} height='100%̈́$' display='flex' flexDirection='column' >
-          <Box width='100%' height={theme.spacing(29)} display='flex' alignItems={'center'} justifyContent={'center'} >           
+      <Drawer open={ isDrawerOpen } variant={ smDown ? 'temporary' : 'permanent' } onClose={toggleDrawerOpen}> 
+
+        {/* <Box width={theme.spacing(28)} height='100%̈́' display='flex' flexDirection='column' > */}
+        <Box width={theme.spacing(28)} height='100%' display='flex' flexDirection='column' >
+
+          <Box width='100%' height={theme.spacing(20)} display='flex' alignItems='center' justifyContent='center' >           
             <Avatar 
               sx={{height: theme.spacing(12), width: theme.spacing(12)  }}
               src="https://cdn.icon-icons.com/icons2/319/PNG/64/Darth-Vader-icon_34508.png" 
@@ -65,12 +69,20 @@ export const MenuLateral = ({children} : PropsWithChildren<{}> ) => {
                   onClick={ smDown ? toggleDrawerOpen : undefined }
                 />
               
-              ))}
-              
-            </List>
-            
-            
+              ))}              
+            </List>            
           </  Box> 
+
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  <Icon>dark_mode</Icon> 
+                </ListItemIcon>
+                <ListItemText primary='Change Theme' />            
+              </ListItemButton>
+            </List>
+          </  Box>           
           
         </Box>
       </Drawer>
