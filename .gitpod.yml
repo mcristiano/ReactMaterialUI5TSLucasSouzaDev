@@ -9,7 +9,7 @@ tasks:
       clear
 
   - init: yarn
-    command: htop
+    command: yarn start
     openMode: split-right
 
   - name: Htop - test  
